@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alert on Click</title>
+  <style>
+    img {
+      width: 300px; /* Set the width of the image as needed */
+      height: auto; /* Maintain aspect ratio */
+      transition: 0.3s; /* Add a smooth transition effect */
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#" id="myLink">Click me</a>
+
+  
+  <img id="myImage" src="371472982_182657248231621_5095957803734718629_n.jpg" alt="Original Image" onmouseover="changeImage()" onmouseout="restoreImage()">
+  <button onclick="increaseCounter()">Increase</button>
+  <button onclick="decreaseCounter()">Decrease</button>
+  <h2>Counter: <span id="counter">0</span></h2>
+  
+  <script>
+    
+    var myLink = document.getElementById('myLink');
+
+   
+    myLink.addEventListener('click', function() {
+   
+      alert('Link clicked!');
+
+      function changeImage() {
+       
+      document.getElementById('myImage').src = 'unnamed.jpg '; // Replace 'hovered.jpg' with the path to your hover image
+    }
+
+    function restoreImage() {
+      document.getElementById('myImage').src = '371472982_182657248231621_5095957803734718629_n.jpg'; // Replace 'original.jpg' with the path to your original image
+    }
+
+    var counterValue = 0; // Initial counter value
+
+function updateCounterDisplay() {
+  // Update the counter value displayed in the browser
+  document.getElementById('counter').innerText = counterValue;
+}
+
+function increaseCounter() {
+  // Increase the counter value on button click
+  counterValue++;
+  updateCounterDisplay();
+}
+
+function decreaseCounter() {
+  // Decrease the counter value on button click, but not below zero
+  if (counterValue > 0) {
+    counterValue--;
+    updateCounterDisplay();
+  }
+}
+    });
+  </script>
+
+</body>
+</html>
